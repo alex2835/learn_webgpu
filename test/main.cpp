@@ -14,10 +14,11 @@ int main( void )
     {
         ThreadPool thread_pool;
         for ( size_t i = 0; i < 10; i++ )
-            thread_pool.AddTask( []()
+            thread_pool.AddTask( [i]()
         {
-            std::cout << "hello" << std::endl;
+            std::cout << "hello" << i << std::endl;
         } );
+        std::cout << "End will be in destructor";
     }
     std::cout << "\n\n\n";
     {
